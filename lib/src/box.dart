@@ -128,7 +128,7 @@ abstract interface class Box<E> {
   void deleteFromDisk();
 
   /// Watch for changes to the given [key].
-  Stream<E?> watchKey(String key);
+  Stream<E?> watchKey(String key, {bool fireImmediately = false});
 
   /// Returns a broadcast stream of all changes to the box. This should mainly
   /// be used to be notified of changes in background isolates.
