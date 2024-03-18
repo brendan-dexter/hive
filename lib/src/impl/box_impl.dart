@@ -356,8 +356,8 @@ class _BoxImpl<E> implements Box<E> {
   }
 
   @override
-  Stream<E?> watchKey(String key) {
-    return isar.frames.where().keyEqualTo(key).watch().map((frames) {
+  Stream<E?> watchKey(String key, {bool fireImmediately = false}) {
+    return isar.frames.where().keyEqualTo(key).watch(fireImmediately: fireImmediately).map((frames) {
       final frame = frames.firstOrNull;
       if (frame == null) {
         return null;
